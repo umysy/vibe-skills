@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ask Vibe"
+  short_description: "Find your place in the vibe flow and the next command"
+policy:
+  allow_implicit_invocation: false

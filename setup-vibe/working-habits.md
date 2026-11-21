@@ -1,0 +1,15 @@
+## Working habits
+
+- **Standards.** Coding standards live in `CODING_STANDARDS.md`; `code-review` checks them. When grilling, writing a spec, or splitting tickets, decide each point those standards and `docs/FILE_CONVENTIONS.md` need (Adapters, module interfaces, config, page states, errors, file locations), and record decisions as ADRs.
+- **Language.** Engineering rules, code, and commit prefixes are in English. Product specs, `GLOSSARY.md` domain terms, and UI copy are in the project's own language.
+- **Base commit.** Before starting a ticket, record the current commit as Base-Commit-SHA under `## Comments` in the ticket file. For a small task with no ticket file, state it in your reply and the commit message.
+- **Commit before review.** Commit before calling `code-review` (a `wip: <ticket>` commit is fine), so the review has a diff. Review against Base-Commit-SHA, with this ticket's file (not the whole spec) as the spec source. Commit fixes on top.
+- **Open-closed tickets.** On an extension ticket under a locked contract (see `CODING_STANDARDS.md` section 1 and its ADR), change only: new files in the plugin dir, one registry line, and tests. If the contract or a sibling implementation must change, stop and ask me; it becomes its own ticket. With one instance, write it directly.
+- **File placement.** Before creating any file, place it by `docs/FILE_CONVENTIONS.md`. When nothing there fits, stop and ask me.
+- **Fix-on-fix stop.** After 2 to 3 failed fix attempts, or when a change breaks many existing tests, stop patching: return to Base-Commit-SHA and re-analyse, or report the blocker to me.
+- **Unknown changes.** When you find changes you did not make, stop and ask me; leave them in place rather than using `git reset --hard`, `git clean`, or overwriting. Larger experiments go on an `exp/*` branch.
+- **Clean commits.** Before each commit, check the staged diff for secrets, tokens, cookies, private keys, personal data, real production data, unredacted logs, and temporary files. If something has already leaked, stop and tell me.
+- **Dependencies.** Before adding one, confirm the package name, version, source, and licence exist and fit. Commit the lockfile with the manifest.
+- **Real data.** Development and tests write only to development data, never to my real data or production services.
+- **Closing a ticket.** When tests and review pass, set the ticket's status line to `done` (keeping its format, e.g. `**Status:** done`), append the last implementation commit SHA under `## Comments`, and commit that alone as `chore: close <ticket>`, so the next ticket starts from a clean tree.
+- **Evidence.** Any claim of "tests pass" or "done" comes with the command you ran and its actual output.
