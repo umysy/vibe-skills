@@ -13,3 +13,4 @@
 - **Real data.** Development and tests write only to development data, never to my real data or production services.
 - **Closing a ticket.** When tests and review pass, set the ticket's status line to `done` (keeping its format, e.g. `**Status:** done`), append the last implementation commit SHA under `## Comments`, and commit that alone as `chore: close <ticket>`, so the next ticket starts from a clean tree.
 - **Evidence.** Any claim of "tests pass" or "done" comes with the command you ran and its actual output.
+- **Full process.** For public release, others' data, multiple writers, high-risk changes, or incidents, follow `<path or URL of the fuller process document>`.

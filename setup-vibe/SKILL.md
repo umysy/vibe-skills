@@ -41,6 +41,7 @@ Summarise the findings. Then ask the sections below in order, **one question per
 - **C. Git identity**: only when missing. Ask the user for the name and email to set for this repo; this skill does not invent them.
 - **D. tdd mismatch**: only when the `tdd` check failed. Recommend reinstalling Matt's `tdd` before the first ticket; this skill does not change installed skills.
 - **E. Existing files**: only when `CODING_STANDARDS.md` or `docs/FILE_CONVENTIONS.md` already exists. Recommend merging the templates' sections into the existing file, keeping the user's rules.
+- **F. Full process**: is there a fuller process document (a team SOP, a release checklist) to follow when work outgrows this flow? Recommend "none" unless the user names one. If they give a path or URL, it fills the **Full process** line of the working habits; with none, that line is left out. `ask-vibe` reads it when escalating.
 
 Done when every section that applies has an answer.
 
@@ -50,7 +51,7 @@ Show the user a draft of every change before writing:
 
 - `CODING_STANDARDS.md`, from [coding-standards.md](coding-standards.md), with the test layout filled into section 8.
 - `docs/FILE_CONVENTIONS.md`, from [file-conventions.md](file-conventions.md), with the test layout applied to the tree.
-- The `## Working habits` block, from [working-habits.md](working-habits.md).
+- The `## Working habits` block, from [working-habits.md](working-habits.md), with the **Full process** line filled from section F or removed.
 - The addendum to `docs/agents/issue-tracker.md`, from [issue-tracker-closing.md](issue-tracker-closing.md).
 - The lines to add to `.gitignore`, from [gitignore.md](gitignore.md).
 - Whether `git init -b main` and a first commit will run.

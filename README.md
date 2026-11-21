@@ -1,6 +1,6 @@
 # Vibe Skills
 
-Two user-invoked skills that sit on top of [Matt Pocock's skills](https://github.com/mattpocock/skills). They compose his flow with the Owner's product rhythm (M0-A, M0-B) and a working environment of coding standards, file conventions, and working habits. Matt's skills read that environment; these skills write it and route through it.
+Two user-invoked skills that sit on top of [Matt Pocock's skills](https://github.com/mattpocock/skills). They compose his flow with an Owner's product rhythm (M0-A, M0-B) and a working environment of coding standards, file conventions, and working habits. Matt's skills read that environment; these skills write it and route through it.
 
 ## User-invoked
 
@@ -9,14 +9,29 @@ Two user-invoked skills that sit on top of [Matt Pocock's skills](https://github
 
 ## Prerequisites
 
-- Matt's skills installed: `ask-matt`, `setup-matt-pocock-skills`, `grill-me`, `grill-with-docs`, `grilling`, `domain-modeling`, `wayfinder`, `prototype`, `research`, `handoff`, `to-spec`, `to-tickets`, `implement`, `implement-spec`, `tdd`, `code-review`, `codebase-design`, `retro`, `diagnosing-bugs`, `triage`.
+- Matt's skills installed: `ask-matt`, `setup-matt-pocock-skills`, `grill-me`, `grill-with-docs`, `grilling`, `domain-modeling`, `wayfinder`, `prototype`, `research`, `handoff`, `to-spec`, `to-tickets`, `implement`, `implement-spec`, `tdd`, `code-review`, `codebase-design`, `retro`, `diagnosing-bugs`, `triage`. See his README for install options.
 - The repo uses Matt's **local markdown** issue tracker (`.scratch/`); `/setup-vibe` stops on any other tracker.
 - The installed `tdd` is Matt's (its description starts with "Test-driven development"). Another skill pack's `tdd` with the same name replaces it on install.
 
 ## Install
 
-Run `scripts/link-skills.ps1`. It links each skill folder into `~/.agents/skills` (Codex) and the Claude Code skills folder, so edits here take effect immediately.
+Everything the two skills need is in this repo. Clone it anywhere, then link it:
+
+```bash
+git clone https://github.com/umysy/vibe-skills.git
+```
+
+- **Windows**: `powershell -File vibe-skills/scripts/link-skills.ps1` (directory junctions, no admin rights needed).
+- **macOS / Linux**: `bash vibe-skills/scripts/link-skills.sh` (symlinks).
+
+Both scripts link each skill folder from wherever you cloned it into `~/.agents/skills` (Codex) and the Claude Code skills folder (`$CLAUDE_CONFIG_DIR/skills`, else `~/.claude/skills`). An existing real folder with the same name is skipped, never overwritten. Restart the tools afterwards. Since they are links, `git pull` updates the installed skills.
+
+Each project can name its own fuller process document (a team SOP, a release checklist): `/setup-vibe` asks for it and writes it into the project's working habits, and `ask-vibe` points there when work outgrows this flow.
 
 ## Docs
 
-Human-facing pages, in Chinese: [docs/setup-vibe.md](docs/setup-vibe.md), [docs/ask-vibe.md](docs/ask-vibe.md). The full Chinese manual is `极简流程/Matt极简流程.md` in the SOP folder.
+Human-facing pages, in Chinese: [docs/setup-vibe.md](docs/setup-vibe.md), [docs/ask-vibe.md](docs/ask-vibe.md).
+
+## License
+
+[MIT](LICENSE)
