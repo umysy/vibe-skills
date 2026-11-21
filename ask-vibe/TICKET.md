@@ -15,9 +15,9 @@ The spec is .scratch/<slug>/spec.md; test seams are in its Testing Decisions, al
 
 The second line is required: after a clear, `implement` sees only what it is given.
 
-The `## Working habits` block sets the order inside: Base-Commit-SHA, `tdd` at the agreed seams, a commit before review, `code-review`, fixes, close. If `tdd` asks about seams again, answer "per the spec". The review has a **Standards** axis (`CODING_STANDARDS.md` plus the smell baseline) and a **Spec** axis, and no dedicated bug-hunting axis; tests and the Spec axis catch logic errors.
+The `## Working habits` block sets the order inside: Base-Commit-SHA, `tdd` at the agreed seams, a commit before review, `code-review`, fixes, stopping its own processes and emptying the temporary folders, close. If `tdd` asks about seams again, answer "per the spec". The review has a **Standards** axis (`CODING_STANDARDS.md` plus the smell baseline) and a **Spec** axis, and no dedicated bug-hunting axis; tests and the Spec axis catch logic errors.
 
-Done when the agent's final report shows the tests it ran with their output, the review findings and fixes, and the close commit.
+Done when the agent's final report shows the tests it ran with their output, the review findings and fixes, the processes it stopped, and the close commit.
 
 ## Stop and ask
 

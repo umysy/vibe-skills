@@ -52,7 +52,7 @@ Status: **draft** until the stack is chosen in the project layer. Finalise secti
 - The repo root holds only what section 1 lists.
 - One copy of everything: no `_v2`, `_new`, `_old`, `_backup`, `copy`, or `.bak` files. History lives in Git.
 - One place per thing: a utility, a config, or a test folder exists once.
-- Temporary files, logs, screenshots, test output, build artifacts, and `.env.local` stay out of Git.
+- Temporary files, logs, screenshots, test output, build artifacts, and `.env.local` stay out of Git. `.tmp/`, `test-results/`, and `coverage/` are emptied when a ticket closes (Disk in `## Working habits`).
 - Bulk deletes and moves happen only after the Owner approves a listed plan. Moves use `git mv`, committed on their own.
 
 ## 4. Git
@@ -69,6 +69,23 @@ git diff --name-status --diff-filter=A <Base>...HEAD
 
 # untracked, unignored files in the working tree
 git status --short --untracked-files=all
+
+# worktrees left behind
+git worktree list
+```
+
+Ports and disk, macOS / Linux:
+
+```bash
+lsof -nP -iTCP:<port> -sTCP:LISTEN          # who holds the port (PID in column 2)
+du -sh .tmp test-results coverage dist node_modules 2>/dev/null | sort -h
+```
+
+Ports and disk, Windows PowerShell:
+
+```powershell
+Get-NetTCPConnection -LocalPort <port> -State Listen | ForEach-Object { Get-Process -Id $_.OwningProcess }
+'.tmp','test-results','coverage','dist','node_modules' | Where-Object { Test-Path $_ } | ForEach-Object { '{0,8:N0} MB  {1}' -f ((Get-ChildItem $_ -Recurse -File -Force -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum / 1MB), $_ }
 ```
 
 ## 6. Project decisions
