@@ -3,6 +3,7 @@
 Add each line only when absent. Extend for the stack once it is chosen.
 
 ```gitignore
+.data/
 .tmp/
 test-results/
 coverage/

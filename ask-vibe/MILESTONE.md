@@ -25,6 +25,8 @@ If this milestone adds a **second instance** of an existing kind, read [OPEN-CLO
 Also settle, following CODING_STANDARDS.md: how each page behaves when loading, empty, failing, submitting, double-submitted, and left (only where it differs from the shared strategy); what the user sees on errors and how they recover; whether this milestone adds an external service (Adapter), a module or cross-module interface (public interface, authoritative definition, folder), a config entry, or a new kind of file (update docs/FILE_CONVENTIONS.md). Record new decisions as ADRs.
 ```
 
+When this milestone first keeps real data or gives the Owner a copy to use day to day (usually M0-B), add: `Settle the stable environment in the environments ADR: its data location, config, port, and accounts, kept apart from development and test, and how the stable copy is updated, backed up, and restored. One ticket proves a development run cannot reach stable data.`
+
 When the project used wayfinder, add: `Also read .scratch/plan-<project>/map.md "Decisions so far" and the resolved decision tickets related to this milestone.` The grill reads `GLOSSARY.md` and ADRs by itself; it reads the map only when told.
 
 Done when the grill has no open questions for this milestone and its new ADRs are written.

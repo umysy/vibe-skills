@@ -2,11 +2,13 @@
 
 ## Packaging for the Owner's own use
 
-When the build is for the Owner alone, paste:
+The installed package is the **stable** copy the Owner uses day to day (`CODING_STANDARDS.md` section 4). Building or updating it is always a separate request from the Owner, never part of a ticket. When the build is for the Owner alone, paste:
 
 ```text
-Build an installable package from the default branch. Check it contains no secrets, tokens, personal data, debug switches, or test files. Install it and run the core flow. Give me a summary: version, source commit, included features, remaining risks.
+Build an installable package of the stable environment from the default branch, following the environments ADR. Confirm tests pass on that commit. Check the package contains no secrets, tokens, personal data, debug switches, test files, or development config. Back up the stable data first, then install. Open it once and confirm it shows no development marker and reads the stable data location; leave the core flow to me. Give me a summary: version, source commit, included features, backup location, the restore step, remaining risks.
 ```
+
+The Owner then runs the core flow in the stable copy. The development build and the stable copy can stay installed side by side.
 
 ## Leaving the light flow
 

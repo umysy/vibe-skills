@@ -28,6 +28,7 @@ Status: **draft** until the stack is chosen in the project layer. Finalise secti
 │  ├─ <feature>/spec.md
 │  ├─ <feature>/issues/NN-<slug>.md
 │  └─ plan-<project>/      # wayfinder map and decision tickets
+├─ .data/                  # development/ and test/ data, unless the environments ADR places them elsewhere; ignored
 ├─ .tmp/                   # temporary files; ignored
 ├─ test-results/  coverage/  dist/   # test output, coverage, build artifacts; ignored
 ├─ GLOSSARY.md             # domain terms (grill-with-docs writes this)
@@ -53,13 +54,14 @@ Status: **draft** until the stack is chosen in the project layer. Finalise secti
 - One copy of everything: no `_v2`, `_new`, `_old`, `_backup`, `copy`, or `.bak` files. History lives in Git.
 - One place per thing: a utility, a config, or a test folder exists once.
 - Temporary files, logs, screenshots, test output, build artifacts, and `.env.local` stay out of Git. `.tmp/`, `test-results/`, and `coverage/` are emptied when a ticket closes (Disk in `## Working habits`).
+- Stable data and the stable install never live inside the repo; development and test data never live in the stable location (`CODING_STANDARDS.md` section 4).
 - Bulk deletes and moves happen only after the Owner approves a listed plan. Moves use `git mv`, committed on their own.
 
 ## 4. Git
 
 | Tracked | Ignored (`.gitignore`) |
 |---|---|
-| `src/`, `tests/`, `assets/`, `config/`, `scripts/`, `docs/`, `.scratch/`, root files listed above, lockfiles | `.tmp/`, `test-results/`, `coverage/`, `dist/`, build caches, `.env.local`, anything holding secrets |
+| `src/`, `tests/`, `assets/`, `config/`, `scripts/`, `docs/`, `.scratch/`, root files listed above, lockfiles | `.data/`, `.tmp/`, `test-results/`, `coverage/`, `dist/`, build caches, `.env.local`, anything holding secrets |
 
 ## 5. Checks
 

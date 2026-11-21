@@ -26,6 +26,7 @@ Settle each item, recording it as an ADR. An item that cannot be settled yet get
 - Modules and each module's public interface.
 - External services, and where each one's Adapter lives.
 - Where configuration lives, and how local secrets are obtained.
+- Environments (`CODING_STANDARDS.md` section 4): for development, test, and stable, the data location, config, port, and accounts; how a non-stable run is marked; how the Owner's stable copy is built, updated, backed up, and restored. Before M0-B only development and test exist; stable is "not yet, settle before the first real data".
 - For each cross-module, frontend-backend, or external interface: its one authoritative definition, plus the generation command if code is generated.
 - The shared page-state strategy (loading, empty, failure) and the error taxonomy (user messages versus diagnostics).
 - Storage, when the project persists data:

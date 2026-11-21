@@ -41,7 +41,7 @@ When every ticket in the milestone is closed:
 | Milestone | The Owner |
 |---|---|
 | M0-A | clicks through every main page and control; gives feedback; approves before M0-B starts |
-| M0-B | runs the core flow end to end, **restarts the app**, and confirms the data persisted |
+| M0-B | runs the core flow end to end in the marked development build, **restarts the app**, confirms the data persisted, and checks the stable data location is untouched |
 | M1+ | tries the new features and spot-checks old ones |
 
 Then:
@@ -49,6 +49,8 @@ Then:
 ```text
 In docs/ROADMAP.md, tick <milestone> as done and commit it. Then merge <slug> into <default>, run the test suite, and show me the merge result and test output.
 ```
+
+To start using the merged version day to day, or to update the copy already in use, see "Packaging for the Owner's own use" in [ESCALATION.md](ESCALATION.md); it is a separate request, never part of a ticket.
 
 Then, in the session where the build happened if possible: `/retro`. A placement or rule mistake that keeps recurring becomes an automated check (for example a pre-commit check of new files against `docs/FILE_CONVENTIONS.md`) or a line in `CODING_STANDARDS.md`.
 

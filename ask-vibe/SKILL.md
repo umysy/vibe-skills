@@ -30,7 +30,7 @@ Read the repo state, then walk this list top to bottom; the **first** match is t
 6. **Project layer**: `docs/ROADMAP.md` is missing, or some `.scratch/plan-*/issues/` ticket is not `resolved` (a ticket with no `Status:` line is unclaimed, so open). Read [PROJECT.md](PROJECT.md).
 7. **Milestone in progress**: on a branch other than `<default>` with no feature folder for it yet. The grill is under way or about to start. Read [MILESTONE.md](MILESTONE.md), step 3.
 8. **Next milestone**: on `<default>`, everything merged, and the roadmap has an unchecked milestone. Read [MILESTONE.md](MILESTONE.md) from the top.
-9. **Roadmap complete**: every roadmap milestone is checked. Read [ESCALATION.md](ESCALATION.md) if the user is packaging or shipping; otherwise suggest `/retro` and adding the next milestones to the roadmap.
+9. **Roadmap complete**: every roadmap milestone is checked. Read [ESCALATION.md](ESCALATION.md) if the user is packaging, updating their stable copy, or shipping; otherwise suggest `/retro` and adding the next milestones to the roadmap.
 
 When open tickets exist but none is `ready-for-agent` (for example `needs-info` or `ready-for-human`), say so: the Owner acts on those before `/implement` can continue.
 
@@ -47,7 +47,7 @@ The flow has three layers. Each layer has its own kind of ticket.
 Branches that only some runs reach:
 
 - **Second instance of an existing kind** (second importer, data source, payment method, window type, scoring rule) appears in a milestone → read [OPEN-CLOSED.md](OPEN-CLOSED.md).
-- **Packaging, shipping to others, or a high-risk change** (key calculations, permissions, important data, destructive migration, cross-system restructure) → read [ESCALATION.md](ESCALATION.md).
+- **Packaging, updating the Owner's stable copy, shipping to others, or a high-risk change** (key calculations, permissions, important data, destructive migration, cross-system restructure) → read [ESCALATION.md](ESCALATION.md).
 - **Small task** one session can finish → `/grill-with-docs` briefly if unclear, then `/implement` in the same session; skip `to-spec` and `to-tickets`.
 - **Hard bug** → `/diagnosing-bugs`. **Incoming reports and requests** → `/triage`. **No repo yet** → `/grill-me`.
 

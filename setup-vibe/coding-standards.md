@@ -25,10 +25,15 @@ The **Standards** axis of `code-review` reads this file. These rules take preced
 - Dependencies are acyclic. Shared database tables and message events count as dependencies.
 - `shared/` holds only general utilities that belong to no business module.
 
-## 4. Configuration over hard-coding
+## 4. Configuration and environments
 
 - Machine paths, URLs, ports, credentials, and business options that may vary by environment or over time live in configuration or platform APIs.
 - Stable domain constants may live in code.
+- The app runs in one of three **environments**: **development**, **test**, and **stable** (the copy the Owner actually uses). Configuration names the environment at startup; code never guesses it from the machine.
+- Each environment has its own data location (folder or database), config, port, and external-service accounts or keys. A desktop app's development build also uses its own app ID and install or output folder, so it never replaces, locks, or shares settings with the installed stable copy.
+- Code derives these from the environment name. No stable path, port, or credential appears in code, tests, or development config. When the environment is missing or unknown, the app refuses to start rather than fall back to stable.
+- A non-stable run is visibly marked (window title, banner, or log prefix), so the Owner never mistakes it for the copy they use.
+- Stable data reaches development only as a copy the Owner asked for, de-identified when it holds other people's data. A schema or data migration runs on such a copy before it runs on stable data.
 
 ## 5. One authoritative definition per interface
 
@@ -65,6 +70,7 @@ Handle the states that match what the page actually does:
 - Tests live in `<test-layout>` (centralised `tests/` or colocated with source; one layout per project). There is one test location; no `test2/` or `temp_tests/`.
 - A test that starts a server, browser, worker, or other process stops it in its own teardown, and the default test command exits on its own (no watch mode). A suite that leaves a process or port behind is a failure.
 - Tests write their scratch files under `test-results/` or `.tmp/` and leave nothing elsewhere.
+- Tests run in the **test** environment (section 4) with data the suite creates and removes itself; they never read or write development or stable data.
 - Valid tests stay in the repo. Release packages exclude them through build configuration.
 - When a test and the implementation disagree, fix the implementation; existing assertions keep their strength.
 
