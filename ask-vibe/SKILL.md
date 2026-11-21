@@ -42,7 +42,7 @@ The flow has three layers. Each layer has its own kind of ticket.
 
 - **Project layer** (once per project): settle direction, the roadmap, and the architecture ADRs. `/grill-with-docs` for a project one session can hold; `/wayfinder` for a large, foggy one, whose tickets are **decisions**, not work. See [PROJECT.md](PROJECT.md).
 - **Milestone layer** (once per milestone or large feature): branch, then `/grill-with-docs` → `/to-spec` → `/to-tickets` in one unbroken session. Tickets are **tracer bullets**. See [MILESTONE.md](MILESTONE.md).
-- **Ticket layer** (once per ticket): fresh context, `/implement <ticket>` with the spec pointer. Under the `## Working habits` block it runs `tdd`, commits, runs `code-review`, and closes the ticket. See [TICKET.md](TICKET.md).
+- **Ticket layer** (once per ticket): fresh context, `/implement <ticket>` with the spec pointer. Under the `## Working habits` block it runs `tdd`, commits, runs `code-review`, stops its own processes, empties the temporary folders, and closes the ticket. See [TICKET.md](TICKET.md).
 
 Branches that only some runs reach:
 

@@ -35,7 +35,7 @@
 
 **它问的"Full process"是什么？** 可选项。如果你有一份更完整的流程文档（团队 SOP、发布清单），把路径或网址告诉它，它会写进项目的 `## Working habits`。以后碰到对外发布、处理别人的数据、高风险改动时，`/ask-vibe` 会指向这份文档。没有就说"没有"，`/ask-vibe` 会直接告诉你那种情况需要补哪些保障。路径按你自己电脑上的位置填，不会写进 Skill 本身。
 
-**Agent 开了一堆进程不关、项目越来越占硬盘怎么办？** `## Working habits` 里有两条专门管这个。Processes：Agent 自己启动的进程和占用的端口，用完必须自己关；测试和构建用跑一次就退出的模式，不用 `--watch`；启动 dev server 前先看端口是否已被占用，自己的就复用，不是自己的就问你；每次回复结束前关掉本轮启动的进程，并在回复里列出关了哪些。你要留着某个进程试用，明确说一声即可。不是它启动的进程它不碰，只列给你看。Disk：关票前清空 `.tmp/`、`test-results/`、`coverage/`，删掉自己建的 worktree；只清这几个指名的目录，不用 `git clean -X`，免得把 `node_modules/` 和 `.env.local` 一起删了。查端口和目录大小的命令在 `docs/FILE_CONVENTIONS.md` 第 5 节。npm/pip 缓存、Playwright 浏览器这类全机共用的东西不归项目管，需要时自己清。
+**Agent 开了一堆进程不关、项目越来越占硬盘怎么办？** `## Working habits` 里有两条专门管这个。Processes：Agent 自己启动的进程和占用的端口，用完必须自己关；测试和构建用跑一次就退出的模式，不用 `--watch`；启动 dev server 前先看端口是否已被占用，自己的就复用，不是自己的就问你；每次回复结束前关掉本轮启动的进程，并在回复里列出关了哪些。你要留着某个进程试用，明确说一声即可。不是它启动的进程它不碰，只列给你看。Disk：关票前清空 `.tmp/`、`test-results/`、`coverage/`，删掉自己建的 worktree；只清这几个指名的目录，不用 `git clean -X`，免得把 `node_modules/` 和 `.env.local` 一起删了。测试本身也一样：`CODING_STANDARDS.md` 第 8 节要求测试启动的服务、浏览器等进程在 teardown 里自己关掉，测试命令跑完自己退出，审查时会核查。查端口和目录大小的命令在 `docs/FILE_CONVENTIONS.md` 第 5 节。npm/pip 缓存、Playwright 浏览器这类全机共用的东西不归项目管，需要时自己清。
 
 **模板为什么是英文？** 这几个文件主要是给 Agent 读的，和 Matt 的 Skill 一致更稳。产品规格、术语表和界面文案仍按项目语言写，`## Working habits` 里有这一条。
 

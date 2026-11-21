@@ -63,6 +63,8 @@ Handle the states that match what the page actually does:
 
 - Tests prove real behaviour: they exercise externally observable behaviour through public seams, and the core logic under test runs for real rather than being mocked.
 - Tests live in `<test-layout>` (centralised `tests/` or colocated with source; one layout per project). There is one test location; no `test2/` or `temp_tests/`.
+- A test that starts a server, browser, worker, or other process stops it in its own teardown, and the default test command exits on its own (no watch mode). A suite that leaves a process or port behind is a failure.
+- Tests write their scratch files under `test-results/` or `.tmp/` and leave nothing elsewhere.
 - Valid tests stay in the repo. Release packages exclude them through build configuration.
 - When a test and the implementation disagree, fix the implementation; existing assertions keep their strength.
 
