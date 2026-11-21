@@ -6,8 +6,8 @@
 
 - `CODING_STANDARDS.md`：代码规范，九节（开闭原则、Adapter、模块边界、配置与环境分离、接口唯一定义、页面状态、错误处理、测试、文件放置）。`code-review` 每次审查都会读它。
 - `docs/FILE_CONVENTIONS.md`：文件放置约定。Agent 建文件前对照它。
-- `AGENTS.md`（或 `CLAUDE.md`）里的 `## Working habits` 一段：每张票的工作习惯，每次会话都会加载。
-- `docs/agents/issue-tracker.md` 末尾的关票约定、`.gitignore` 的几行。
+- `AGENTS.md`（或 `CLAUDE.md`）里的 `## Working habits` 一段：每张票的工作习惯，每次会话都会加载。包括审查前先提交、文件放置、修复熔断、提交前查隐私、只在开发和测试环境工作、自己启动的进程用完自己关、关票前清理临时目录、拿出证据。
+- `docs/agents/issue-tracker.md` 末尾的关票约定（关票前先关进程、清临时目录）、`.gitignore` 的几行（含开发与测试数据目录 `.data/`）。
 
 写完后做一次初始提交。之后这些文件就是规则的唯一来源，你直接改它们就行。
 
@@ -44,5 +44,6 @@
 ## 怎样算在正常工作
 
 - 仓库里有 `CODING_STANDARDS.md`、`docs/FILE_CONVENTIONS.md`，`AGENTS.md` 里有 `## Working habits`。
-- `git rev-parse HEAD` 能输出提交号；`git check-ignore -v .scratch/x` 没有任何输出。
+- `git rev-parse HEAD` 能输出提交号；`git check-ignore -v .scratch/x` 没有任何输出；`git check-ignore -v .data/x` 有输出（开发数据不进 Git）。
+- 之后每张票结束时，Agent 的汇报里列出了它关掉的进程，`.tmp/`、`test-results/`、`coverage/` 已清空。
 - 之后每张票的审查报告里，Standards 一项会引用 `CODING_STANDARDS.md` 的条目。

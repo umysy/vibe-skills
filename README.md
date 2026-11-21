@@ -7,6 +7,12 @@ Two user-invoked skills that sit on top of [Matt Pocock's skills](https://github
 - [setup-vibe](setup-vibe/SKILL.md): write `CODING_STANDARDS.md`, `docs/FILE_CONVENTIONS.md`, and the `## Working habits` block into a repo. Once per repo, after `/setup-matt-pocock-skills`.
 - [ask-vibe](ask-vibe/SKILL.md): find where you are in the flow and get the exact next command to paste.
 
+## What the rules cover
+
+- **Code** (`CODING_STANDARDS.md`, checked by `code-review`): open-closed extension, Adapters for external services, module boundaries, configuration and environments (development, test, and the Owner's stable copy kept apart), one definition per interface, page states, error handling, tests that clean up after themselves, file placement.
+- **Agent behaviour** (`## Working habits`, loaded every session): base commit and commit before review, file placement, fix-on-fix stop, clean commits, dependencies, environments (work only in development and test; the stable copy is updated only on request, after a backup), processes (stop every process and port you start), disk (empty temporary folders before closing a ticket), evidence.
+- **Flow** (`ask-vibe`): when each decision is made, from the architecture ADRs to the stable environment before the first real data.
+
 ## Prerequisites
 
 - Matt's skills installed: `ask-matt`, `setup-matt-pocock-skills`, `grill-me`, `grill-with-docs`, `grilling`, `domain-modeling`, `wayfinder`, `prototype`, `research`, `handoff`, `to-spec`, `to-tickets`, `implement`, `implement-spec`, `tdd`, `code-review`, `codebase-design`, `retro`, `diagnosing-bugs`, `triage`. See his README for install options.
